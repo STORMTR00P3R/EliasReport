@@ -1,10 +1,346 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewpoint" content="width=device-width">
-        <title>Elias Blum</title>
-        <link href="style.css" rel="stylesheet" type="text/css" />
-    </head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>replit</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li><h1>Elias Blum</h1></li>
+                <li>Projects</li>
+                <ul>
+                    <li>Landmarks</li>
+                    <li>LeetCode</li>
+                    <ul>
+                        <li>Reverse Integer</li>
+                        <li>Roman to Integer</li>
+                        <li>Palindrome Number</li>
+                        <li>Valid Parentheses</li>
+                        <li>Remove Element</li>
+                        <li>Plus One</li>
+                        <li>Length of Last Word</li>
+                        <li>Two Sum</li>
+                    </ul>
+                </ul>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h2>Coding Report</h2>
+
+            <h3>Landmarks Project</h3>
+            <!-- Screenshot -->
+            <h4>Project in MacOS Mode</h4>
+            <img src="https://i.ibb.co/mbHB0x6/Screenshot-2023-11-08-at-5-58-32-PM.png">
+            
+            <h4>Code</h4>
+            <img src="https://i.ibb.co/FKcTZWs/Screenshot-2023-11-08-at-6-03-41-PM.png">
+
+            <p>Landmarks is an app built in Swift for iOS and MacOS. With this project, Elias worked learned about the
+                Swift
+                programming language, its evolution from Apple's Objective-C legacy code, and the SwiftUI framework for
+                creating user interfaces.</p>
+
+            <p>Concepts:</p>
+            <ul>
+                <li>Composable functions</li>
+                <li>Environment objects</li>
+                <li>JSON files</li>
+                <li>SwiftUI modifiers</li>
+                <li>Media assets</li>
+            </ul>
+
+
+            <hr>
+            <!-- ---------------- COMPLETE THE SECTION BELOW   -->
+
+            <h3>LeetCode Challenges</h3>
+
+            <!-- Screenshot -->
+            <img src="https://i.ibb.co/99ZmLFV/Screenshot-2023-11-08-at-5-39-25-PM.png">
+
+            <p>LeetCode is an online platform to practice my coding skills by solving challenges to prepare me for
+                technical
+                interviews. I'm doing the challenges in Swift to review the syntax and the concepts that I started with
+                on
+                my previous app, the Landmarks app.</p>
+
+            <p>Completed Challenges:</p>
+            <ul>
+                <li>Reverse Integer</li>
+                <ul>
+                    <li><b>Problem Statement: </b>Given a signed 32-bit integer x, return x with its digits reversed. If
+                        reversing x causes the value to go outside the signed 32-bit integer range
+                        <code>[-231, 231 - 1]</code>, then return 0.
+                    </li>
+                    <li>
+
+                        <pre>
+
+                                class Solution {
+                                  func reverse(_ x: Int) -> Int {
+                                      var result = 0
+                                      var number = x
+
+                                      while number != 0 {
+
+                                        let digit = number % 10
+                                        number /= 10
+
+                                        // Check for integer overlow
+
+                                        if result > Int32.max / 10 || (result == Int32.max / 10 && digit > 7) {
+                                          return 0
+                                        }
+
+                                        if result < Int32.min / 10 || (result == Int32.min / 10 && digit < -8) {
+                                          return 0
+                                        }
+
+
+                                        result = result * 10 + digit
+
+
+                                      }
+                                    return result
+                                  }
+                              }
+
+                      </pre>
+
+
+                    </li>
+
+
+                </ul>
+
+
+
+
+
+                <li>Roman to Integer</li>
+                <ul>
+                    <li><b>Problem Statement: </b> Given a roman numeral, convert it to an integer. </li>
+
+                    <li>
+
+                        <pre>
+
+                                    class Solution {
+                                      func romanToInt(_ s: String) -> Int {
+
+                                        let numerals: [Character: Int] = [
+                                          "I": 1,
+                                          "V": 5,
+                                          "X": 10,
+                                          "L": 50,
+                                          "C": 100,
+                                          "D": 500,
+                                          "M": 1000
+                                        ]
+
+                                        var result = 0
+                                        var prevValue = 0
+
+                                        for char in s.reversed() {
+                                          if let currentInt = numerals[char] {
+                                            if currentInt < prevValue {
+                                              result -= currentInt
+                                            } else {
+                                              result += currentInt
+                                            }
+                                            prevValue = currentInt
+                                          }
+                                        }
+
+
+                                        return result
+                                      }
+                                  }
+
+                          </pre>
+
+
+                    </li>
+
+
+
+                </ul>
+
+
+
+                <li>Palindrome Number</li>
+                <ul>
+                    <li><b>Problem Statement: </b> Given an integer x, return true if x is a palindrome, and false
+                        otherwise. </li>
+
+
+
+                    <li>
+
+                        <pre>
+
+                                        class Solution {
+                                          func isPalindrome(_ x: Int) -> Bool {
+                                              if (x < 0) {
+                                                return false
+                                              }
+
+                                              var original = x
+                                              var reversed = 0
+
+                                              while original > 0 {
+                                                reversed = reversed * 10 + original % 10
+                                                original /= 10
+                                              }
+
+                                              return reversed == x
+
+                                          }
+                                      }
+
+
+                              </pre>
+
+
+                    </li>
+
+
+
+
+                </ul>
+
+
+
+                <li>Valid Parentheses</li>
+                <ul>
+                    <li><b>Problem Statement: </b> Given a string s containing just the characters '(', ')', '{', '}',
+                        '['
+                        and ']', determine if the input string is valid. </li>
+
+
+                    <li>
+
+                        <pre>
+
+                                    class Solution {
+                                        func isValid(_ s: String) -> Bool {
+
+                                            var openCount = 0
+                                            var curlyCount = 0
+                                            var squareCount = 0
+
+                                            for char in s {
+                                              switch char {
+
+                                                case "(":
+                                                    openCount += 1
+                                                case ")":
+                                                    if openCount == 0 {
+                                                        return false
+                                                    }
+                                                    openCount -= 1
+
+                                                case "{":
+                                                    curlyCount += 1  
+                                                case "}":
+                                                    if curlyCount == 0 {
+                                                      return false
+                                                  }
+                                                    curlyCount -= 1
+
+                                                case "[":
+                                                    squareCount += 1
+                                                case "]":
+                                                  if squareCount == 0 {
+                                                    return false
+                                                  }
+                                                  squareCount -= 1
+
+
+                                                default:
+                                                    return false
+                                              }
+                                            }
+
+                                              return openCount == 0 && curlyCount == 0 && squareCount == 0
+                                        }
+                                    }
+
+                          </pre>
+
+
+                    </li>
+
+
+                </ul>
+
+
+
+
+
+
+
+                <li>Remove Element</li>
+                <ul>
+                    <li><b>Problem Statement: </b> Given an integer array nums and an integer val, remove all
+                        occurrences of
+                        val in nums in-place. The order of the elements may be changed. Then return the number of
+                        elements
+                        in nums which are not equal to val. </li>
+
+
+
+                    <li>
+
+                        <pre>
+
+                                          class Solution {
+                                            func removeElement(_ nums: inout [Int], _ val: Int) -> Int {
+                                                var i = 0
+
+                                                for j in 0.. < nums.count {
+                                                    if nums[j] != val {
+                                                      nums[i] = nums[j]
+                                                      i += 1
+                                                    }
+                                                }
+                                                return i
+                                            }
+                                        }
+
+
+                                </pre>
+
+
+                    </li>
+
+
+
+                </ul>
+
+
+
+
+            </ul>
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <script src="script.js"></script>
+
+</body>
+
 </html>
