@@ -1,13 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto+Mono&family=Sometype+Mono&display=swap');
+
 html {
     height: 100%;
     width: 100%;
-    font-family: 'Helvetica', sans-serif;
-    /* background-color: #cbbce5; */
+    font-family: 'Roboto Mono', monospace;
     background-color: #454545;
 }
 
 .container {
     display: flex;
+}
+
+
+h1 {
+    color: white;
 }
 
 .navigation {
@@ -30,6 +36,16 @@ html {
     line-height: 3em;
 }
 
+.navigation ul a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.navigation ul a:hover {
+    text-decoration: underline;
+    color: #fff;
+}
+
 .content {
     flex: 1;
     padding: 30px;
@@ -39,5 +55,5 @@ html {
 }
 
 img {
-    width: 100%;
+    width: 65%;
 }
