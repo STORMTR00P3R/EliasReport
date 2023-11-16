@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>replit</title>
+    <title>Elias Report</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -13,7 +13,9 @@
     <div class="container">
         <div class="navigation">
             <ul>
-                <li><h1>Elias Blum</h1></li>
+                <li>
+                    <h1>Elias Blum</h1>
+                </li>
                 <li>Projects</li>
                 <ul>
                     <li><a href="#Landmarks">Landmarks</a></li>
@@ -39,7 +41,7 @@
             <!-- Screenshot -->
             <h4>Project in MacOS Mode</h4>
             <img src="https://i.ibb.co/mbHB0x6/Screenshot-2023-11-08-at-5-58-32-PM.png">
-            
+
             <h4>Code</h4>
             <img src="https://i.ibb.co/FKcTZWs/Screenshot-2023-11-08-at-6-03-41-PM.png">
 
@@ -57,11 +59,9 @@
                 <li>Media assets</li>
             </ul>
 
-
             <hr>
-            <!-- ---------------- COMPLETE THE SECTION BELOW   -->
 
-            <h3>LeetCode Challenges</h3>
+            <h3 id="LeetCode">LeetCode Challenges</h3>
 
             <!-- Screenshot -->
             <img src="https://i.ibb.co/99ZmLFV/Screenshot-2023-11-08-at-5-39-25-PM.png">
@@ -80,6 +80,9 @@
                         reversing x causes the value to go outside the signed 32-bit integer range
                         <code>[-231, 231 - 1]</code>, then return 0.
                     </li>
+
+                    <li><img src="https://i.ibb.co/0qv8QH5/Screenshot-2023-11-14-at-6-07-16-PM.png" alt="Reverse"></li>
+                    
                     <li>
 
                         <pre>
@@ -128,6 +131,8 @@
                 <li>Roman to Integer</li>
                 <ul>
                     <li><b>Problem Statement: </b> Given a roman numeral, convert it to an integer. </li>
+
+                    <li><img src="https://i.ibb.co/KVSL9N2/Screenshot-2023-11-14-at-6-08-19-PM.png" alt="PlusOne"></li>
 
                     <li>
 
@@ -181,6 +186,7 @@
                     <li><b>Problem Statement: </b> Given an integer x, return true if x is a palindrome, and false
                         otherwise. </li>
 
+                    <li><img src="https://i.ibb.co/JHrq1Nk/Screenshot-2023-11-14-at-6-08-32-PM.png" alt="Remove Element"></li>
 
 
                     <li>
@@ -225,6 +231,7 @@
                         '['
                         and ']', determine if the input string is valid. </li>
 
+                    <li><img src="" alt="Valid Parentheses"></li>
 
                     <li>
 
@@ -297,6 +304,7 @@
                         in nums which are not equal to val. </li>
 
 
+                    <li><img src="https://i.ibb.co/8M6X29L/Screenshot-2023-11-14-at-6-09-15-PM.png" alt="Remove Element"></li>
 
                     <li>
 
@@ -327,6 +335,108 @@
                 </ul>
 
 
+
+                <li>Plus One</li>
+                <ul>
+                    <li><b>Problem Statement: </b> You are given a large integer represented as an integer array digits,
+                        where each digits[i] is the ith digit of the integer. The digits are ordered from most
+                        significant to least significant in left-to-right order. The large integer does not contain any
+                        leading 0's.</li>
+
+                    <li><img src="https://i.ibb.co/zm5WSy7/Screenshot-2023-11-01-at-5-58-17-PM.png" alt="Reverse Integer"></li>
+
+                    <li>
+
+                        <pre>
+                        class Solution {
+                            func plusOne(_ digits: [Int]) -> [Int] {
+                                var result = digits 
+                                var carry = 1
+
+                                for i in stride(from: digits.count - 1, through: 0, by: -1) {
+                                    let sum = digits[i] + carry
+                                    result[i] = sum % 10
+                                    carry = sum / 10
+                                }
+
+                                if carry > 0 {
+                                    result.insert(carry, at: 0)
+                                }
+
+                                return result
+                            }
+                        }
+
+                                                                      </pre>
+                    </li>
+                </ul>
+
+
+                <li>Length of Last Word</li>
+                <ul>
+                    <li><b>Problem Statement: </b> Given a string s consisting of words and spaces, return the length of
+                        the last word in the string.</li>
+
+                    <li><img src="https://i.ibb.co/BC5M8hc/Screenshot-2023-11-14-at-6-27-53-PM.png" alt="Two Sum"></li>
+
+                    <li>
+
+                        <pre>
+                            class Solution {
+                                func lengthOfLastWord(_ s: String) -> Int {
+                                    let words = s.split(separator: " ")
+
+                                    if let lastWord = words.last {
+                                        return lastWord.count
+                                    } else {
+                                        return 0
+                                    }
+                                }
+                            }
+
+                                                                      </pre>
+                    </li>
+                </ul>
+
+
+
+                <li>Two Sum</li>
+                <ul>
+                    <li><b>Problem Statement: </b> Given an array of integers nums and an integer target, return indices
+                        of the two numbers such that they add up to target.
+
+                        You may assume that each input would have exactly one solution, and you may not use the same
+                        element twice.
+
+                        You can return the answer in any order. </li>
+
+                    <li><img src="https://i.ibb.co/KhNpX4L/Screenshot-2023-11-14-at-6-07-01-PM.png" alt=""></li>
+
+                    <li>
+
+                        <pre>
+
+                          class Solution {
+                              func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+                                  var numIndices = [Int: Int]()
+        
+                                  for (index, number) in nums.enumerated() {
+                                      let complement = target - number
+        
+                                      if let complementIndex = numIndices[complement] {
+                                          return [complementIndex, index]
+                                      }
+        
+                                      numIndices[number] = index
+                                  }
+        
+                                  return []
+                              }
+                          }
+
+                      </pre>
+                    </li>
+                </ul>
 
 
             </ul>
